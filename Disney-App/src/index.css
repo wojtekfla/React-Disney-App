@@ -1,4 +1,28 @@
 :root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  background-color: #f4ecd6;
+  color: #310a31;
+}
+
+.colors {
+  color:#310a31;
+  color:#847996;
+  color:#88b7b5;
+  color:#a7cab1;
+  color:#f4ecd6;
+
+  color: #ebebeb;
+}
+
+
+/*
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,3 +90,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+  */
