@@ -17,12 +17,10 @@ export function useFetch (url) {
         }
         const json = await response.json()
         setMoviesData(json)
-
       } catch (error) {
         setError(error.message)
       } finally {
         setIsLoading(false)
-        
       }
     }
 
@@ -31,9 +29,7 @@ export function useFetch (url) {
     return () => {
       setIsLoading(false)
     }
-
   },[url])
 
-
-  return { moviesData, error, isLoading } 
+  return { moviesData, setMoviesData, error, isLoading } 
 }

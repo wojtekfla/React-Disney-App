@@ -8,12 +8,13 @@ export const StyledContainer = styled.div`
 	// min-width: 801px;
 	max-width: 1400px;
   text-align: center;
-	background-color: #EEEDE7;
 	display: flex;
   align-items: center;
   flex-wrap: wrap;
-	
 
+	background-color: ${({$darkMode}) => ($darkMode? 'black' : 'white')};
+	color: ${({$darkMode}) => ($darkMode? 'white' : 'black')};
+	
 	@media (min-width: 480px  ) {
 
 	}
@@ -21,7 +22,6 @@ export const StyledContainer = styled.div`
 	@media (min-width: 800px ) {
 
 	}
-
 
 
 `;

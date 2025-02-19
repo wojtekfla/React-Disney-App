@@ -28,15 +28,4 @@ export const Title = styled.div`
   
 
 `
-  // color: &{colors.something}
-  // border: 1px solid ${colors.something}
 
-// .colors {
-//   color:#310a31;
-//   color:#847996;
-//   color:#88b7b5;
-//   color:#a7cab1;
-//   color:#f4ecd6;
-
-//   color: #ebebeb;
-// }

@@ -1,35 +1,39 @@
 import { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
+import { createPortal } from 'react-dom'
+
 import { CardItem } from "./CardItem";
 import { Flex } from "./styled/Flex";
+import { PaginationOutlined } from "./Pagination";
+
 
 const URL = "https://api.disneyapi.dev/character";
-// const URL = 'https://api.disneyapi.dev/character?name=Mickey Mouse'
 
 export function CardList() {
-	// const [ loadingData, setLoadingData ] = useState(false)
-	const { moviesData, error, isLoading } = useFetch(URL);
+	const [ page, setPage ] = useState(1)
+	const { moviesData, error, isLoading = true } = useFetch(`${URL}?page=${page}`);
 
-	console.log("printData", moviesData);
-	let moviesData2;
 
-	if (moviesData.length === 0) {
-		return;
-	} else {
-		moviesData2 = [...moviesData.data];
-		console.log("moviesData", moviesData2);
-	}
+	const handlePageChange = (p) => {
+		setPage(p)
+	};
+
+	const totalPages = moviesData.info ? moviesData.info.totalPages : 0
 
 	return (
-		<Flex>
-			{moviesData2 &&
-				moviesData2.map((item) => {
-					return <CardItem item={item} key={item.id} />;
-				})}
-		</Flex>
+		<>
+		{error && <p>{error.message}</p>}
+			<Flex justify={"center"}>
+				{isLoading ? (<p>Loading, please wait</p>) :
+				 moviesData.data &&
+					moviesData.data.map((item) => {
+						return <CardItem item={item} key={item._id} />;
+					})}
+			</Flex>
+			{!isLoading && <Flex justify={'center'}>
+				<PaginationOutlined onPageChange={handlePageChange} count={totalPages} page={page} />
+			</Flex>}
+		</>
 	);
 }
 
-{
-	/* <div style={{ minHeight: "60vh", width: "100vw" }}></div> */
-}
