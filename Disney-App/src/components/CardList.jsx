@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { createPortal } from 'react-dom'
 
 import { CardItem } from "./CardItem";
 import { Flex } from "./styled/Flex";
 import { PaginationOutlined } from "./Pagination";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 const URL = "https://api.disneyapi.dev/character";
 
 export function CardList() {
+	const { isDarkTheme, toggleTheme, currentTheme } = useContext(ThemeContext);
 	const [ page, setPage ] = useState(1)
 	const { moviesData, error, isLoading = true } = useFetch(`${URL}?page=${page}`);
 
@@ -27,11 +29,11 @@ export function CardList() {
 				{isLoading ? (<p>Loading, please wait</p>) :
 				 moviesData.data &&
 					moviesData.data.map((item) => {
-						return <CardItem item={item} key={item._id} />;
+						return <CardItem $theme={currentTheme} item={item} key={item._id} />;
 					})}
 			</Flex>
 			{!isLoading && <Flex justify={'center'}>
-				<PaginationOutlined onPageChange={handlePageChange} count={totalPages} page={page} />
+				<PaginationOutlined $theme={currentTheme}  onPageChange={handlePageChange} count={totalPages} page={page} />
 			</Flex>}
 		</>
 	);

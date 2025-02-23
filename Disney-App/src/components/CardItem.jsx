@@ -2,15 +2,17 @@ import { Button } from "./Button";
 import { StyledCard, Image } from "./styled/StyledCard";
 import { createPortal } from "react-dom";
 
+import { useContext, useState } from "react";
 import { Modal } from "./modal/Modal";
-import { useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export function CardItem({ item }) {
+	const { isDarkTheme, toggleTheme, currentTheme } = useContext(ThemeContext);
 	const { name, imageUrl, _id:id } = item;
 	const [isModalShown, setIsModalShown] = useState(false)
 
 	const modal = createPortal(
-		<Modal onClose={() => setIsModalShown(false)} item={item}/>,
+		<Modal onClose={() => setIsModalShown(false)} item={item} $theme={currentTheme}/>,
 		document.body
 	)
 
@@ -20,11 +22,9 @@ export function CardItem({ item }) {
 		console.log(item)
 	}
 
-	// console.log('item', item)
-
 	return (
 		<>
-		<StyledCard>
+		<StyledCard $theme={currentTheme}>
 			<div>
 				<Image src={imageUrl} />
 			</div>

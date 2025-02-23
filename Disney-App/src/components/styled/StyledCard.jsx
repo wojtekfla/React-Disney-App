@@ -8,7 +8,8 @@ export const StyledCard = styled.div`
   margin: 1px;
 	width: 240px;
   height: 260px;
-  background-color: #e2e2e2;
+  background-color: ${({ theme }) => theme.bg1};
+	color: ${({ theme }) => theme.color1};
   border: 1px solid #a0a0a0;
   border-radius: 6px;
   box-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.75);
