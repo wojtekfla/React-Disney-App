@@ -1,22 +1,17 @@
-import "./App.css";
-
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppBar } from "./components/AppBar";
 import { CardList } from "./components/CardList";
-import { Footer } from "./components/Footer";
 import { StyledContainer } from "./components/styled/StyledContainer";
 import { ThemeContext } from "./context/ThemeContext";
 
 function App() {
-	const { isDarkTheme, toggleTheme, currentTheme } = useContext(ThemeContext);
-	console.log('in app theme', currentTheme)
+	const { currentTheme } = useContext(ThemeContext);
 
 	return (
 		<>
-			<StyledContainer $theme={currentTheme} >
+			<StyledContainer theme={currentTheme}>
 				<AppBar />
-				<CardList $theme={currentTheme}/>
-				<Footer />
+				<CardList />
 			</StyledContainer>
 		</>
 	);

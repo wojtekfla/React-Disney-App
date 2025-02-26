@@ -7,7 +7,7 @@ import { Modal } from "./modal/Modal";
 import { ThemeContext } from "../context/ThemeContext";
 
 export function CardItem({ item }) {
-	const { isDarkTheme, toggleTheme, currentTheme } = useContext(ThemeContext);
+	const { currentTheme } = useContext(ThemeContext);
 	const { name, imageUrl, _id:id } = item;
 	const [isModalShown, setIsModalShown] = useState(false)
 
@@ -16,10 +16,8 @@ export function CardItem({ item }) {
 		document.body
 	)
 
-	const handleItemClick = (id) => {
-		console.log('item id', id)
+	const handleItemClick = () => {
 		setIsModalShown(true)
-		console.log(item)
 	}
 
 	return (

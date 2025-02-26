@@ -18,14 +18,9 @@ import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 export function Modal({ onClose, item }) {
-	const { darkTheme } = useContext(ThemeContext);
-
-	console.log("in modal", item);
-	console.log("is Dark Theme?", darkTheme);
+	const { isDarkTheme, toggleTheme, currentTheme } = useContext(ThemeContext);
 
 	const { imageUrl, name, films, shortFilms, videoGames, tvShows } = item;
-
-	console.log("films", films);
 
 	const stylesImg = {
 		width: "220px",
@@ -42,14 +37,13 @@ export function Modal({ onClose, item }) {
 		zIndex: "100",
 	};
 
-	// films, shortFilms, videoGames, tvShows
 	return (
-		<div className="modal">
+		<div>
 			<Overlay onClick={onClose} />
-			<ModalWrapper>
+			<ModalWrapper theme={currentTheme} >
 				
 				<Header>
-					<CharacterImage src={imageUrl} alt={name} />
+					<CharacterImage src={imageUrl} alt={name} theme={currentTheme} />
 					<CharacterName>{name}</CharacterName>
 				</Header>
 
@@ -96,8 +90,6 @@ export function Modal({ onClose, item }) {
 						</Section>
 					</Column>
 				</ContentWrapper>
-
-				{/* <button onClick={onClose}>Zamknij</button> */}
 			</ModalWrapper>
 		</div>
 	);

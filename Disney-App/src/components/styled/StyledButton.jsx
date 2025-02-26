@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const StyledButton = styled.button`
-  background-color: #007be6;
-  color: #e2e2e2;
+  background-color: var(--button-color);
+  color: var(--bg-color);
   margin-bottom: 10px;
   width: 90%;
   border-radius: 5px;
@@ -10,4 +10,3 @@ export const StyledButton = styled.button`
   min-height: 1.25rem;
   cursor: pointer;
 `
-

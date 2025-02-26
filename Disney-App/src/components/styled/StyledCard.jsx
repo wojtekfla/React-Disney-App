@@ -5,20 +5,19 @@ export const StyledCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 1px;
-	width: 240px;
+  margin: 4px;
+	width: 210px;
   height: 260px;
-  background-color: ${({ theme }) => theme.bg1};
-	color: ${({ theme }) => theme.color1};
+  background-color: ${({ theme }) => theme.bg2};
+	color: ${({ theme }) => theme.color2};
   border: 1px solid #a0a0a0;
   border-radius: 6px;
-  box-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.75);
-
+  box-shadow: 1px 0px 2px 1px #a0a0a0;
 `
 
 export const Image = styled.img`
  margin: 0px;
- width: 240px;
+ width: 210px;
  max-height: 160px;
  // aspect-ratio: 1;
  overflow: hidden;
@@ -26,7 +25,5 @@ export const Image = styled.img`
 `
 
 export const Title = styled.div`
-  
-
 `
 

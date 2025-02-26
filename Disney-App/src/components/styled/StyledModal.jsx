@@ -3,14 +3,13 @@ import styled from "styled-components";
 export const ModalWrapper = styled.div`
 	position: fixed;
 	max-height: 90%;
-	left: 25vw;
-	right: 25vw;
+	left: 30vw;
+	right: 30vw;
 	top: 10vh;
 	bottom: 10vh;
 	padding: 1rem;
-	// background-color: ${({ theme }) => theme.background};
-	background-color: #bbb;
-	color: ${({ theme }) => theme.text};
+	background-color: ${({ theme }) => theme.bg2};
+	color: ${({ theme }) => theme.color2};
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -30,13 +29,13 @@ export const CharacterImage = styled.img`
 	height: 120px;
 	border-radius: 50%;
 	object-fit: cover;
-	border: 2px solid ${({ theme }) => theme.border};
+	border: 2px solid ${({ theme }) => theme.bg2};
 `;
 
 export const CharacterName = styled.h2`
 	margin-top: 0.75rem;
 	font-size: 2rem;
-	color: ${({ theme }) => theme.text};
+	color: ${({ theme }) => theme.color2};
 `;
 
 export const ContentWrapper = styled.div`
@@ -60,7 +59,8 @@ export const Column = styled.div`
 `;
 
 export const Section = styled.div`
-	background-color: ${({ theme }) => theme.sectionBackground};
+	background-color: ${({ theme }) => theme.bg1};
+	color: ${({ theme }) => theme.color1};
 	border-radius: 5px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 	max-height: 260px;
@@ -79,14 +79,14 @@ export const SectionTitle = styled.h3`
 `;
 
 export const Item = styled.div`
-	background-color: ${({ theme }) => theme.itemBackground};
 	color: ${({ theme }) => theme.text};
+	color: ${({ theme }) => theme.color1};
 	padding: 0.15rem;
 	font-size: 0.9rem;
 `;
 
 export const Placeholder = styled.div`
-	color: ${({ theme }) => theme.placeholder};
+	color: ${({ theme }) => theme.color1};
 	text-align: center;
 	font-style: italic;
 `;
@@ -101,24 +101,4 @@ export const Overlay = styled.div`
 	z-index: 10;
 `;
 
-export const lightTheme = {
-	background: "#ffffff",
-	text: "#333333",
-	border: "#dddddd",
-	sectionBackground: "#f9f9f9",
-	itemBackground: "#e0e0e0",
-	scrollbar: "#bbb",
-	scrollbarHover: "#888",
-	placeholder: "#999999",
-};
 
-export const darkTheme = {
-	background: "#2b2b2b",
-	text: "#ffffff",
-	border: "#444444",
-	sectionBackground: "#3c3c3c",
-	itemBackground: "#4d4d4d",
-	scrollbar: "#555555",
-	scrollbarHover: "#777777",
-	placeholder: "#aaaaaa",
-};

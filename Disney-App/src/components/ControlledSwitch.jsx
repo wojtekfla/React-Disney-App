@@ -1,26 +1,29 @@
-import * as React from 'react';
-import Switch from '@mui/material/Switch';
-import { useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext';
-
+import * as React from "react";
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function ControlledSwitch() {
-  const { isDarkTheme, toggleTheme, currentTheme } = useContext(ThemeContext);
-  const [checked, setChecked] = React.useState(false);
+	const { toggleTheme } = useContext(ThemeContext);
+	const [checked, setChecked] = React.useState(false);
 
-  const handleChange = (event) => {
-    console.log('in switch', currentTheme )
-    setChecked(event.target.checked);
-    toggleTheme()
-  };
+	const handleChange = (event) => {
+		setChecked(event.target.checked);
+		toggleTheme();
+	};
 
-  return (
-    <Switch
-      checked={checked}
-      onChange={handleChange}
-      inputProps={{ 'aria-label': 'controlled' }}
-      label='Theme'
-    />
-  );
+	return (
+		<FormControlLabel
+			control={
+				<Switch
+					checked={checked}
+					onChange={handleChange}
+					inputProps={{ "aria-label": "controlled" }}
+				/>
+			}
+			label="dark mode"
+      
+		/>
+	);
 }
-
